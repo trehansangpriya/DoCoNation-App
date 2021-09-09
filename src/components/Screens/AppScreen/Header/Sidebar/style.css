@@ -8,6 +8,7 @@
 	height: calc(100vh - 72px);
 	background: var(--c-light);
 	padding: 30px 20px;
+	padding-bottom: 72px;
 	transform: translateX(-100%);
 	transition: all 0.2s ease-in-out;
 }
@@ -47,7 +48,7 @@
 	align-items: flex-start;
 	justify-content: flex-start;
 	flex-direction: column;
-	flex: 1;
+	/* flex: 1; */
 }
 .sidebarLink.danger {
 	margin: 4px 0;

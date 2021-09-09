@@ -6,22 +6,29 @@ import { useAuthContext } from './../../../lib/contexts/AuthContext';
 
 const Clubs = () => {
     const [clubs, setClubs] = useState([]);
-    const { setShowAlert } = useAuthContext()
-    const alert = () => {
-        setShowAlert({
-            status: true,
-            title: 'Club Features Coming Soon!',
-            variant: 'warning',
-        })
-        setTimeout(() => {
-            setShowAlert({
-                status: false,
-                title: '',
-                variant: '',
-            })
-        }, 2000)
-    }
+    const {
+        // setShowAlert,
+        setLoading
+    } = useAuthContext()
+    // const alert = () => {
+    //     setShowAlert({
+    //         status: true,
+    //         title: 'Club Features Coming Soon!',
+    //         variant: 'warning',
+    //     })
+    //     setTimeout(() => {
+    //         setShowAlert({
+    //             status: false,
+    //             title: '',
+    //             variant: '',
+    //         })
+    //     }, 2000)
+    // }
     useEffect(() => {
+        setLoading({
+            text: 'Loading...',
+            status: true
+        })
         db.collection('clubs').onSnapshot(snapshot => {
             const clubs = snapshot.docs.map(doc => ({
                 id: doc.id,
@@ -31,8 +38,12 @@ const Clubs = () => {
                 form: doc.data().form,
             }))
             setClubs(clubs);
+            setLoading({
+                text: '',
+                status: false
+            })
         })
-    }, [])
+    }, [setLoading])
     return (
         <div className='clubs'>
             <div className="clubsList">

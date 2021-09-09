@@ -4,12 +4,18 @@ import RecordedEventCard from './RecordedEventCard';
 import { Filter } from 'react-feather';
 import './style.css'
 import { motion, AnimatePresence } from 'framer-motion';
+import { useAuthContext } from '../../../../lib/contexts/AuthContext';
 const RecordedEvents = () => {
     const [tags, setTags] = useState([]);
     const [selectedFilter, setSelectedFilter] = useState('All')
     const [openFilter, setOpenFilter] = useState(false)
     const [pastEvents, setPastEvents] = useState([]);
+    const { setLoading } = useAuthContext()
     useEffect(() => {
+        setLoading({
+            text: 'Loading...',
+            status: true
+        })
         db.collection('tags').orderBy('priority', 'asc').onSnapshot(snapshot => {
             setTags(snapshot.docs.map(doc => (
                 {
@@ -33,12 +39,16 @@ const RecordedEvents = () => {
                         }
                     })
                 )
+                setLoading({
+                    text: '',
+                    status: false
+                })
             }
         )
-    }, [])
+    }, [setLoading])
     return (
         <div className='pastEvents'>
-            <div layout className="pastEventsFilters">
+            <div className="pastEventsFilters">
 
                 <div className="filter">
                     <div className="filterButton" onClick={e => setOpenFilter(!openFilter)} >
@@ -66,16 +76,15 @@ const RecordedEvents = () => {
                                 layout
                                 className="filterOptions"
                             >
-                                {tags.map((tag) => (
+                                {tags.map((tag, index) => (
                                     <motion.div
-                                        layout
-                                        key={tags.id}
+                                        key={index}
                                         className='filterOption'
                                         onClick={e => {
-                                            console.log(e.target.value)
                                             setSelectedFilter(tag.title)
                                             setOpenFilter(false)
                                         }}
+                                        layout
                                     >
                                         {tag.title}
                                         {tag.title === selectedFilter && <Filter />}

@@ -25,7 +25,10 @@ const EditProfile = () => {
     const [gender, setGender] = useState('')
     const [phoneNumber, setPhoneNumber] = useState('')
     const [phonePrivacy, setPhonePrivacy] = useState('private')
-    const [dateOfBirth, setDateOfBirth] = useState('')
+    // const [dateOfBirth, setDateOfBirth] = useState('')
+    const [dd, setDd] = useState('')
+    const [mm, setMm] = useState('')
+    const [yyyy, setYyyy] = useState('')
     const [instagram, setInstagram] = useState('')
     const [linkedin, setLinkedin] = useState('')
     const [bio, setBio] = useState('')
@@ -104,8 +107,8 @@ const EditProfile = () => {
             }, 2000)
             return
         }
-        // check date of birth empty and age is 13 or older
-        if (dateOfBirth === '') {
+        // check dd,mm,yyyy of birth empty and age is 13 or older
+        if (dd === '' || mm === '' || yyyy === '') {
             setShowAlert({
                 status: true,
                 title: 'Date of birth is required',
@@ -125,7 +128,7 @@ const EditProfile = () => {
             return
         }
         // check if age is 13 or older
-        const date = new Date(dateOfBirth)
+        const date = new Date(mm + '/' + dd + '/' + yyyy)
         const age = new Date().getFullYear() - date.getFullYear()
         if (age < 13) {
             setShowAlert({
@@ -212,7 +215,7 @@ const EditProfile = () => {
                 firstName,
                 lastName,
                 phoneNumber,
-                dateOfBirth: new Date(dateOfBirth),
+                dateOfBirth: new Date(mm + '/' + dd + '/' + yyyy),
                 bio,
                 interests: selectedInterests,
                 profileComplete: true,
@@ -222,7 +225,7 @@ const EditProfile = () => {
                 phonePrivacy,
                 emailPrivacy
             }, { merge: true }).then(() => {
-
+                history.push('/profile')
                 setLoading({
                     status: false,
                     text: ''
@@ -232,7 +235,6 @@ const EditProfile = () => {
                     title: 'Profile updated successfully',
                     variant: 'success'
                 })
-                history.push('/profile')
                 setTimeout(() => {
                     setShowAlert({
                         status: false,
@@ -381,13 +383,17 @@ const EditProfile = () => {
         userData && userData.firstName && setFirstName(userData.firstName)
         userData && userData.lastName && setLastName(userData.lastName)
         userData && userData.phoneNumber && setPhoneNumber(userData.phoneNumber)
-        userData && userData.dateOfBirth && setDateOfBirth(getDateTime(userData.dateOfBirth).inputDate)
+        // userData && userData.dateOfBirth && setDateOfBirth(getDateTime(userData.dateOfBirth).inputDate)
+        userData && userData.dateOfBirth && setDd(getDateTime(userData.dateOfBirth).dd)
+        userData && userData.dateOfBirth && setMm(getDateTime(userData.dateOfBirth).mm)
+        userData && userData.dateOfBirth && setYyyy(getDateTime(userData.dateOfBirth).yyyy)
         userData && userData.instagram && setInstagram(userData.instagram)
         userData && userData.linkedin && setLinkedin(userData.linkedin)
         userData && userData.bio && setBio(userData.bio)
         userData && userData.interests && setSelectedInterests(userData.interests)
         userData && userData.gender && setGender(userData.gender)
         userData && userData.phonePrivacy && setPhonePrivacy(userData.phonePrivacy)
+        userData && userData.emailPrivacy && setEmailPrivacy(userData.emailPrivacy)
     }, [userData, setLoading])
     return currentUser.emailVerified ? (
         <div className='editProfile'>
@@ -420,12 +426,6 @@ const EditProfile = () => {
                     />
                 </div>
                 <div className="inputGroup">
-                    {/* <div className="emoji">
-                        <img
-                            src='/assets/icons/gender.png'
-                            alt='instagram'
-                        />
-                    </div> */}
                     <div className="select">
                         {
                             genderOptions.map((option, index) => (
@@ -479,13 +479,55 @@ const EditProfile = () => {
                         />
                     </div>
                     <Input
-                        id='dob'
-                        type='date'
-                        placeholder='dob'
+                        id='dd'
+                        type='text'
+                        placeholder='dd'
                         required={true}
-                        value={dateOfBirth}
+                        value={dd}
                         onChange={(e) => {
-                            setDateOfBirth(e.target.value)
+                            setDd(e.target.value)
+                        }}
+                        style={{
+                            width: '50px',
+                            textAlign: 'center'
+                        }}
+                    />
+                    &nbsp;
+                    &nbsp;
+                    <span className='c-disabled'>/</span>
+                    &nbsp;
+                    &nbsp;
+                    <Input
+                        id='mm'
+                        type='text'
+                        placeholder='mm'
+                        required={true}
+                        value={mm}
+                        onChange={(e) => {
+                            setMm(e.target.value)
+                        }}
+                        style={{
+                            width: '50px',
+                            textAlign: 'center'
+                        }}
+                    />
+                    &nbsp;
+                    &nbsp;
+                    <span className='c-disabled'>/</span>
+                    &nbsp;
+                    &nbsp;
+                    <Input
+                        id='yyyy'
+                        type='text'
+                        placeholder='yyyy'
+                        required={true}
+                        value={yyyy}
+                        onChange={(e) => {
+                            setYyyy(e.target.value)
+                        }}
+                        style={{
+                            width: '70px',
+                            textAlign: 'center'
                         }}
                     />
                 </div>

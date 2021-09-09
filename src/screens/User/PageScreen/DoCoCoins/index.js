@@ -80,17 +80,23 @@ const DoCoCoins = () => {
                 </div>
                 <AnimateSharedLayout>
                     <motion.div className="dococoinsTransactionsList" layout >
-                        {transactions.map(({ id, title, amount, datetime, type }) => (
-                            <TransactionCard
-                                key={id}
-                                title={title}
-                                amount={amount}
-                                type={type}
-                                date={datetime.date}
-                                time={datetime.time}
-                                id={id}
-                            />
-                        ))}
+                        {transactions.length > 0 ?
+                            transactions.map(({ id, title, amount, datetime, type }) => (
+                                <TransactionCard
+                                    key={id}
+                                    title={title}
+                                    amount={amount}
+                                    type={type}
+                                    date={datetime.date}
+                                    time={datetime.time}
+                                    id={id}
+                                />
+                            ))
+                            :
+                            (
+                                <h2 className='c-grey'>no transactions yet</h2>
+                            )
+                        }
                     </motion.div>
                 </AnimateSharedLayout>
             </motion.div>

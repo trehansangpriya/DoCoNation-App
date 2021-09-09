@@ -9,11 +9,15 @@ import { AnimateSharedLayout, motion } from 'framer-motion';
 import './style.css'
 
 const MyResources = () => {
-    const { currentUser } = useAuthContext()
+    const { currentUser, setLoading, loading } = useAuthContext()
     const [search, setSearch] = useState('')
     const [myResources, setMyResources] = useState([])
     const [filteredResources, setFilteredResources] = useState([])
     useEffect(() => {
+        setLoading({
+            text: 'Loading...',
+            status: true
+        })
         currentUser && db.collection('resources').where('users', 'array-contains', currentUser.email).onSnapshot(
             snapshot => {
                 setMyResources(snapshot.docs.map(doc => ({
@@ -26,9 +30,13 @@ const MyResources = () => {
                     type: doc.data().type,
                     givenBy: doc.data().givenBy,
                 })))
+                setLoading({
+                    text: '',
+                    status: false
+                })
             }
         )
-    }, [currentUser])
+    }, [currentUser, setLoading])
     const onSearch = () => {
         setFilteredResources(myResources.filter(resource => resource.title.toLowerCase().includes(search.toLowerCase()) || resource.category.toLowerCase().includes(search.toLowerCase()) || resource.type.toLowerCase().includes(search.toLowerCase()) || resource.level.toLowerCase().includes(search.toLowerCase())))
     }
@@ -86,7 +94,7 @@ const MyResources = () => {
                                 )
                             }
                         </motion.div>
-                    ) : (
+                    ) : !loading.status && (
                         <div className='noResources'>
                             <h2>you haven't saved any resource 🥲</h2>
                             <span>

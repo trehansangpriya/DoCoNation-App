@@ -15,11 +15,9 @@ const ResourceCard = ({ title, category, link, level, type, id, createdAt, given
     const [communityData, setCommunityData] = useState()
     const [contributer, setContributer] = useState()
     useEffect(() => {
-        setSaving(true)
         db.collection('resources').doc(id).onSnapshot(doc => {
             setSaved(doc.data().users.includes(currentUser.email))
             setSaveCount(doc.data().users.length)
-            setSaving(false)
         })
         givenBy.community && db.collection('communities').doc(givenBy.community).onSnapshot(doc => {
             setCommunityData({ ...doc.data() })
