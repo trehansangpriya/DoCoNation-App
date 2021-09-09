@@ -5,14 +5,20 @@ import EventCard from './EventCard';
 import { motion } from 'framer-motion';
 import getDateTime from './../../../lib/functions/getDateTime';
 import { Link } from 'react-router-dom';
+import { useAuthContext } from './../../../lib/contexts/AuthContext';
 
 const Events = () => {
+    const { setLoading } = useAuthContext()
     const tags = ['live now 🔴', 'upcoming 📅']
     const [selectedTag, setSelectedTag] = useState('live now 🔴')
     const [upcomingEvents, setUpcomingEvents] = useState([]);
     const [liveEvents, setLiveEvents] = useState([]);
     const [pastEventCount, setPastEventCount] = useState(0);
     useEffect(() => {
+        setLoading({
+            text: 'Loading...',
+            status: true
+        })
         db.collection('ytVids').onSnapshot(
             snapshot => {
                 setPastEventCount(snapshot.docs.length)
@@ -66,7 +72,10 @@ const Events = () => {
                     tags: doc.data().tags,
                     calendarLink: doc.data().calendarLink,
                 })))
-
+                setLoading({
+                    text: '',
+                    status: false
+                })
             })
         if (liveEvents.length === 0) {
             setSelectedTag('upcoming 📅')
