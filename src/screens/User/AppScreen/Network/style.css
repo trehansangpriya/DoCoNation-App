@@ -1,0 +1,40 @@
+.network .tabs {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	font-size: 16px;
+	font-weight: 600;
+	margin: 12px 0;
+}
+.network .tabs .tab {
+	margin-right: 16px;
+	position: relative;
+	cursor: pointer;
+	/* display: flex;
+	align-items: center;
+	justify-content: flex-start; */
+	transition: all 0.2s ease;
+	filter: opacity(70%);
+}
+.network .tabs .tab:last-child {
+	margin-right: 0;
+}
+.network .tabs .tab::before {
+	content: '';
+	position: absolute;
+	bottom: -8px;
+	left: 0;
+	border-radius: 50px;
+	height: 3px;
+	width: 0px;
+	background-color: var(--c-primary-dark);
+}
+
+.network .tabs .tab.selected {
+	filter: opacity(100%);
+	color: var(--c-primary);
+}
+.network .tabs .tab.selected::before {
+	width: 100%;
+	background-color: var(--c-primary);
+}

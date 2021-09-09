@@ -1,0 +1,165 @@
+.resourceCard {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+	padding: 8px;
+	margin: 8px 0px;
+	border-radius: 4px;
+	background-color: var(--c-light);
+	box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
+}
+
+.resourceCard .resourceCardHeader {
+	display: flex;
+	/* align-items: center; */
+	width: 100%;
+	height: 100%;
+}
+
+.resourceCard .resourceCardHeader .resourceCardIcon {
+	width: 64px;
+	display: block;
+	border-radius: 4px;
+	background-color: var(--c-primary-dark);
+	margin-right: 12px;
+}
+.resourceCard .resourceCardHeader .resourceCardIcon .img {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.resourceCard .resourceCardHeader .resourceCardIcon .img img {
+	width: 28px;
+}
+.resourceCard .resourceCardHeader .resourceCardContent {
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	justify-content: flex-start;
+	margin-right: 8px;
+	cursor: pointer;
+}
+.resourceCard .resourceCardHeader .resourceCardContent .resourceCardTitle {
+	width: 100%;
+	display: flex;
+	justify-content: flex-start;
+	align-items: flex-start;
+	flex: 1;
+	font-size: 18px;
+	font-weight: 600;
+	margin-bottom: 8px;
+}
+.resourceCard .resourceCardHeader .resourceCardContent .resourceCardLevel {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	align-items: center;
+	font-size: 12px;
+	font-weight: 500;
+	margin-bottom: 2px;
+}
+.resourceCard .resourceCardHeader .resourceCardContent .resourceCardLevel span {
+	color: var(--c-light);
+	background-color: var(--c-primary-dark);
+	padding: 4px 8px;
+	border-radius: 4px;
+	margin-right: 4px;
+}
+.resourceCard .resourceCardHeader .resourceCardSaveHolder {
+	display: block;
+	width: 42px;
+	/* border: 2px solid var(--c-primary-dark); */
+	/* background-color: var(--c-light); */
+	/* background-color: var(--c-primary-dark); */
+	border-radius: 4px;
+}
+.resourceCard .resourceCardHeader .resourceCardSave {
+	display: flex;
+	width: 100%;
+	height: 100%;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 4px 8px;
+	/* color: var(--c-primary-dark); */
+	/* color: var(--c-light); */
+}
+.resourceCard .resourceCardHeader .resourceCardSave .resourceCardSaveIcon.rotate {
+	animation: rotate 3s infinite;
+}
+@keyframes rotate {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+.resourceCard .resourceCardHeader .resourceCardSave .resourceCardSaveIcon {
+	padding: 8px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+}
+
+.resourceCard .resourceCardHeader .resourceCardSave .resourceCardSaveCount {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 16px;
+	font-weight: 600;
+	padding: 4px;
+}
+
+.resourceCard .resourceCardInfo {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+	width: 100%;
+	padding: 8px;
+	margin-top: 8px;
+}
+.resourceCard .resourceCardInfo .resourceCardInfoDetails {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+	width: 100%;
+	margin-bottom: 8px;
+	padding: 0;
+}
+.resourceCard .resourceCardInfo .resourceCardInfoDetails div {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+	width: 100%;
+	margin: 8px 0;
+}
+.resourceCard .resourceCardInfo .resourceCardInfoDetails div span {
+	font-weight: 600;
+}
+.resourceCard .resourceCardInfo .resourceCardInfoDetails div .givenBy {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+}
+.resourceCard .resourceCardInfo .resourceCardInfoDetails div .givenBy img {
+	width: 24px;
+	height: 24px;
+	border-radius: 4px;
+	margin-right: 4px;
+}
+.resourceCard .resourceCardInfo .resourceCardInfoLink {
+	display: flex;
+	width: 100%;
+	justify-content: center;
+	align-items: center;
+}

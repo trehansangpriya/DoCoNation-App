@@ -1,0 +1,18 @@
+.resourceCategories .categoryList {
+	display: flex;
+	flex-direction: column;
+	/* flex-wrap: wrap; */
+	margin-top: 8px;
+}
+.resourceCategories .categoryList .category {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-radius: 4px;
+	background-color: var(--c-primary-light);
+	padding: 16px;
+	margin: 4px 0;
+	width: 100%;
+	font-size: 18px;
+	font-weight: 600;
+}

@@ -1,0 +1,20 @@
+.input {
+	width: 100%;
+	padding: 4px;
+	outline: none;
+	border: none;
+	border-bottom: 2px solid var(--c-disabled);
+	background-color: transparent;
+	color: var(--c-primary-dark);
+	transition: all 0.2s ease-in-out;
+}
+.input:focus,
+.input:active {
+	outline: none;
+	border-bottom: 2px solid var(--c-primary);
+	color: var(--c-primary);
+}
+.input.disabled {
+	border-bottom: 2px solid var(--c-disabled);
+	color: var(--c-grey);
+}

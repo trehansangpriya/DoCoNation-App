@@ -1,0 +1,49 @@
+.authScreen .form {
+	width: 100%;
+}
+
+.authScreen .inputGroup {
+	width: 100%;
+	display: flex;
+	margin: 30px 0;
+	position: relative;
+}
+
+.authScreen .inputGroup > .icon {
+	position: absolute;
+	background-color: var(--c-light);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 90%;
+	right: 0;
+	color: var(--c-disabled);
+	z-index: 1;
+	transition: all 0.2s ease-in-out;
+}
+
+.authScreen .inputGroup.seperator {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.authScreen .inputGroup.seperator p {
+	padding: 0 16px;
+	color: var(--c-disabled);
+	font-size: 18px;
+	font-weight: 500;
+}
+
+.authScreen .inputGroup.seperator .bar {
+	height: 2px;
+	background-color: var(--c-disabled);
+	width: 100%;
+}
+
+.authScreen .text {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: var(--c-grey);
+}

@@ -1,0 +1,67 @@
+.events .tabs {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	font-size: 20px;
+	font-weight: 600;
+	margin: 16px 0;
+}
+
+.events .recordedEvents {
+	margin: 12px 0;
+	display: flex;
+	padding: 12px 16px;
+	border-radius: 4px;
+	justify-content: space-between;
+	align-items: center;
+	background-color: var(--c-primary-light);
+	color: var(--c-primary);
+	font-size: 18px;
+	font-weight: 500;
+}
+
+.events .tabs .tab {
+	margin-right: 16px;
+	position: relative;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	transition: all 0.2s ease;
+	filter: opacity(70%);
+}
+.events .tabs .tab::before {
+	content: '';
+	position: absolute;
+	bottom: -8px;
+	left: 0;
+	border-radius: 50px;
+	height: 3px;
+	width: 0px;
+	background-color: var(--c-primary-dark);
+}
+
+.events .tabs .tab.selected {
+	filter: opacity(100%);
+	color: var(--c-primary);
+}
+.events .tabs .tab.selected::before {
+	width: 100%;
+	background-color: var(--c-primary);
+}
+.events .eventsList {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+}
+.events .eventsList .noEvents {
+	text-transform: lowercase;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+	width: 100%;
+	margin-top: 16px;
+}

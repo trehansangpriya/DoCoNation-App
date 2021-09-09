@@ -1,0 +1,84 @@
+.userCard {
+	padding: 12px 16px;
+	border-radius: 4px;
+	background-color: var(--c-light);
+	box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 8px;
+	align-items: flex-start;
+	justify-content: center;
+}
+.userCard .userInfo {
+	display: flex;
+	width: 100%;
+}
+.userCard .userInfo .userImage {
+	width: 64px;
+	height: 64px;
+	margin-right: 16px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+}
+.userCard .userInfo .userImage img {
+	width: 100%;
+	border-radius: 50%;
+	object-fit: cover;
+}
+
+.userCard .userInfo .userName {
+	display: flex;
+	flex: 1;
+	align-items: center;
+	justify-content: flex-start;
+	font-size: 18px;
+	font-weight: 600;
+	cursor: pointer;
+}
+.userCard .userInfo .connect {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+}
+.userCard .userDetails {
+	margin: 8px 0px;
+}
+.userCard .userDetails .userBio {
+	font-size: 18px;
+	font-weight: 600;
+	color: var(--c-primary-dark);
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.userCard .userDetails .userInterests {
+	display: flex;
+	flex-wrap: wrap;
+}
+.userCard .userDetails .userInterests .userInterest {
+	width: fit-content;
+	margin-right: 4px;
+	margin-bottom: 4px;
+	padding: 4px 8px;
+	border-radius: 4px;
+	background-color: var(--c-primary-dark);
+	color: var(--c-light);
+	font-size: 12px;
+	font-weight: 500;
+}
+.userCard .userBtns {
+	width: 100%;
+	display: flex;
+}
+.userCard .userDetails .userContact {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+.userCard .userDetails .userContact img {
+	width: 32px;
+	margin-right: 8px;
+}

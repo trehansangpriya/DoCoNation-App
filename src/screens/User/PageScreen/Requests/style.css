@@ -1,0 +1,126 @@
+.requests .tabs {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	font-size: 20px;
+	font-weight: 600;
+	margin: 12px 0;
+}
+.requests .tabs .tab {
+	margin-right: 16px;
+	position: relative;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	transition: all 0.2s ease;
+	filter: opacity(70%);
+}
+.requests .tabs .tab::before {
+	content: '';
+	position: absolute;
+	bottom: -8px;
+	left: 0;
+	border-radius: 50px;
+	height: 3px;
+	width: 0px;
+	background-color: var(--c-primary-dark);
+}
+
+.requests .tabs .tab.selected {
+	filter: opacity(100%);
+	color: var(--c-primary);
+}
+.requests .tabs .tab.selected::before {
+	width: 100%;
+	background-color: var(--c-primary);
+}
+.requests .requestsList {
+	margin-top: 16px;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+}
+.requests .requestsList .request {
+	padding: 12px 16px;
+	border-radius: 4px;
+	background-color: var(--c-light);
+	box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 8px;
+	align-items: flex-start;
+	justify-content: center;
+	transition: all 0.2s ease;
+}
+.requests .requestsList .request .requestHeader {
+	display: flex;
+	width: 100%;
+}
+.requests .requestsList .request .requestHeader .requestImage {
+	width: 64px;
+	height: 64px;
+	margin-right: 16px;
+	display: flex;
+	justify-content: center;
+	cursor: pointer;
+	align-items: center;
+}
+.requests .requestsList .request .requestHeader .requestImage img {
+	width: 100%;
+	border-radius: 50%;
+	object-fit: cover;
+}
+.requests .requestsList .request .requestHeader .requestName {
+	display: flex;
+	cursor: pointer;
+	flex: 1;
+	align-items: center;
+	justify-content: flex-start;
+	font-size: 18px;
+	font-weight: 600;
+}
+.requests .requestsList .request .requestHeader .requestIcons {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.requests .requestsList .request .requestHeader .requestIcons .requestIcon {
+	margin-right: 8px;
+	padding: 6px;
+	border-radius: 50%;
+	background-color: var(--c-primary-dark);
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.requests .requestsList .request .requestHeader .requestIcons .requestIcon:last-child {
+	margin-right: 0;
+}
+.requests .requestsList .request .requestBody {
+	margin: 8px 0px;
+}
+.requests .requestsList .request .requestBody .requestBio {
+	font-size: 18px;
+	font-weight: 600;
+	color: var(--c-primary-dark);
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.requests .requestsList .request .requestBody .requestInterests {
+	display: flex;
+	flex-wrap: wrap;
+}
+.requests .requestsList .request .requestBody .requestInterests .requestInterest {
+	width: fit-content;
+	margin-right: 4px;
+	margin-bottom: 4px;
+	padding: 4px 8px;
+	border-radius: 4px;
+	background-color: var(--c-primary-dark);
+	color: var(--c-light);
+	font-size: 12px;
+	font-weight: 500;
+}

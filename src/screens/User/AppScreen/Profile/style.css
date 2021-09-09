@@ -1,0 +1,132 @@
+.profile .profileHeader {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.profile .profileContent {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 20px;
+	border-radius: 4px;
+	background-color: var(--c-light);
+	box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.18);
+}
+.profile .profileContent .profileImage {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.profile .profileContent .profileImage img {
+	width: 164px;
+	height: 164px;
+	border-radius: 50%;
+}
+.profile .profileContent .profileInfo {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.profile .profileContent .profileInfo .profileName {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+.profile .profileContent .profileInfo .profileBirthday {
+	width: fit-content;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 8px 16px;
+	border-radius: 4px;
+	background-color: var(--c-primary-light);
+}
+.profile .profileContent .profileInfo .profileBirthday .emoji {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-right: 8px;
+}
+.profile .profileContent .profileInfo .profileBirthday .emoji img {
+	width: 24px;
+}
+
+.profile .profileContent .profileInfo .profileEmail {
+	width: fit-content;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+.profile .profileContent .profileInfo .profileEmail h3 {
+	position: relative;
+}
+.profile .profileContent .profileInfo .profileEmail .icon {
+	position: absolute;
+	cursor: pointer;
+	right: -32px;
+	top: 50%;
+	transform: translateY(-50%);
+}
+.profile .profileContent .profileInfo .profilePhone {
+	width: fit-content;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+.profile .profileContent .profileInfo .profilePhone h3 {
+	position: relative;
+}
+.profile .profileContent .profileInfo .profilePhone .icon {
+	position: absolute;
+	cursor: pointer;
+	right: -32px;
+	top: 50%;
+	transform: translateY(-50%);
+}
+.profile .profileContent .profileInfo .profileSocials {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+.profile .profileContent .profileInfo .profileSocials .profileSocialIcon {
+	margin: 0 10px;
+}
+.profile .profileContent .profileInfo .profileSocials .profileSocialIcon img {
+	width: 32px;
+	height: 32px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.profile .profileContent .title {
+	width: 100%;
+	margin-bottom: 4px;
+}
+.profile .profileContent .profileBio {
+	width: 100%;
+}
+.profile .profileContent .profileInterests {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+}
+.profile .profileContent .profileInterests span {
+	width: fit-content;
+	margin-right: 4px;
+	margin-bottom: 4px;
+	padding: 4px 8px;
+	border-radius: 4px;
+	background-color: var(--c-primary-dark);
+	color: var(--c-light);
+	font-size: 12px;
+	font-weight: 500;
+}

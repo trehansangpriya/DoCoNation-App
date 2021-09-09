@@ -1,0 +1,138 @@
+.header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	padding: 0 20px;
+	width: 100%;
+	height: 72px;
+	background-color: var(--c-light);
+	color: var(--c-primary-dark);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	z-index: 10;
+}
+
+.header .icon {
+	width: 30px;
+	height: 30px;
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	flex-direction: column;
+	transition: all 0.2s ease-in-out;
+	cursor: pointer;
+}
+/* .header .icon .bar {
+	height: 3px;
+	margin: 0;
+	padding: 0;
+	stroke: 3px solid var(--c-primary-dark);
+	border-radius: 50px;
+	background-color: var(--c-primary-dark);
+	transition: all 0.2s ease-in-out;
+}
+.header .icon .bar1 {
+	width: 100%;
+}
+
+.header .icon .bar2 {
+	width: 50%;
+}
+.header .icon.open {
+	justify-content: center;
+}
+.header .icon.open .bar1 {
+	width: 30px;
+	transform: rotate(45deg);
+	transform-origin: center;
+}
+.header .icon.open .bar2 {
+	width: 30px;
+	transform: rotate(-45deg);
+	transform-origin: center;
+} */
+
+.header .items {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+}
+
+.header .items .item {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-left: 12px;
+	height: 100%;
+}
+
+.header .items .item .dococoin {
+	position: relative;
+	transition: all 0.2s ease-in-out;
+	background-color: var(--c-primary-dark);
+	padding: 4px 12px 4px 32px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 8px;
+	color: var(--c-light);
+}
+
+.header .items .item .dococoin .dococoinIcon {
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	left: -16%;
+	top: 50%;
+	transform: translateY(-50%);
+}
+.header .items .item .dococoin .dococoinIcon img {
+	width: 38px;
+}
+.header .items .item .docostore {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+}
+
+/* Desktop CSS */
+@media screen and (min-width: 800px) {
+	.header {
+		padding: 0 200px;
+	}
+}
+/* Tablet CSS */
+@media screen and (min-width: 1144px) {
+	.header {
+		padding: 0 300px;
+	}
+}
+/* Tablet CSS */
+@media screen and (min-width: 1340px) {
+	.header {
+		padding: 0 400px;
+	}
+}
+/* Tablet CSS */
+@media screen and (min-width: 1440px) {
+	.header {
+		padding: 0 500px;
+	}
+}
+/* Tablet CSS */
+@media screen and (min-width: 1640px) {
+	.header {
+		padding: 0 600px;
+	}
+}
+/* Tablet CSS */
+@media screen and (min-width: 1840px) {
+	.header {
+		padding: 0 700px;
+	}
+}

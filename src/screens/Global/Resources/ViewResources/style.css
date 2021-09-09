@@ -1,0 +1,10 @@
+.viewResources {
+	margin-bottom: 52px;
+}
+.viewResources .search {
+	margin: 16px 0;
+	background-color: var(--c-light);
+	border-radius: 4px;
+	box-shadow: 0 0px 4px 0 rgba(0, 0, 0, 0.2);
+	padding: 16px;
+}

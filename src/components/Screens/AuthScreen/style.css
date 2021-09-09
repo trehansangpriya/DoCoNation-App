@@ -1,0 +1,8 @@
+.authScreen {
+	width: 100%;
+	min-height: 95vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	padding-bottom: 30px;
+}

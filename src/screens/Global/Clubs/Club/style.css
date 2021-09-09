@@ -1,0 +1,22 @@
+.clubPage .clubHeader {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+}
+.clubPage .clubHeader .clubInfo {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+	margin-left: 16px;
+}
+.clubPage .clubHeader .clubIcon {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.clubPage .clubHeader .clubIcon img {
+	width: 64px;
+	height: 64px;
+}

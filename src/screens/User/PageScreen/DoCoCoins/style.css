@@ -1,0 +1,56 @@
+.dococoins {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+}
+.dococoins .dococoinsHeader {
+	padding-top: 32px;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.dococoins .dococoinsHeader .dococoinsIcon {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.dococoins .dococoinsHeader .dococoinsIcon img {
+	width: 180px;
+	animation: dococoinsIcon 1.5s infinite ease-in-out;
+}
+
+@keyframes dococoinsIcon {
+	0% {
+		transform: translateY(0);
+	}
+	50% {
+		transform: translateY(-10px);
+	}
+	100% {
+		transform: translateY(0);
+	}
+}
+.dococoins .dococoinsHeader .dococoinsCount {
+	margin: 8px 0;
+	background-color: var(--c-primary-dark);
+	min-width: 50%;
+	max-width: fit-content;
+	padding: 4px 16px;
+	border-radius: 8px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 32px;
+	font-weight: 700;
+	color: var(--c-yellow);
+}
+.dococoins .dococoinsHeader .dococoinsText {
+	width: 50%;
+	margin: 8px 0;
+	font-size: 22px;
+	font-weight: 700;
+	color: var(--c-primary-dark);
+}

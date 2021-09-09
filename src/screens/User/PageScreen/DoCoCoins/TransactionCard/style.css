@@ -1,0 +1,59 @@
+.transactionCard {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	background-color: var(--c-light);
+	border-radius: 4px;
+	box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
+	padding: 12px 16px;
+	margin: 8px 0;
+	cursor: pointer;
+}
+
+.transactionCard .transactionInfo {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+.transactionCard .transactionInfo .transactionIcon {
+	padding: 8px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50%;
+	background-color: var(--c-primary-dark);
+	margin-right: 12px;
+}
+.transactionCard .transactionInfo .transactionDetails {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+}
+.transactionCard .transactionInfo .transactionDetails .transactionTitle {
+	font-size: 18px;
+	font-weight: 500;
+	color: var(--c-primary-dark);
+}
+.transactionCard .transactionInfo .transactionDetails .transactionAmount {
+	font-size: 20px;
+	font-weight: 700;
+	color: var(--c-primary-dark);
+}
+.transactionCard .transactionMoreDetails {
+	padding: 16px;
+	font-size: 16px;
+	font-weight: 500;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+}
+.transactionCard .transactionMoreDetails .transactionDate,
+.transactionCard .transactionMoreDetails .transactionTime,
+.transactionCard .transactionMoreDetails .transactionId {
+	margin: 4px 0;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
