@@ -60,7 +60,8 @@ export const AuthProvider = ({ children }) => {
         return auth.signInWithEmailAndPassword(email, password)
     }
     const signInWithGoogle = () => {
-        return auth.signInWithPopup(provider)
+        // return auth.signInWithPopup(provider)
+        return auth.signInWithRedirect(provider)
     }
     const logOut = () => {
         setCurrentUser(null)

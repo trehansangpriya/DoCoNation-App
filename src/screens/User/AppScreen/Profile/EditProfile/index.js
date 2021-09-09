@@ -208,7 +208,7 @@ const EditProfile = () => {
             return
         }
         setTimeout(() => {
-            db.collection('users').doc(currentUser.uid).update({
+            db.collection('users').doc(currentUser.uid).set({
                 firstName,
                 lastName,
                 phoneNumber,

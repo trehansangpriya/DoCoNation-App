@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useAuthContext } from '../../../lib/contexts/AuthContext';
 import { Link, Redirect, useHistory } from 'react-router-dom';
 import '../style.css'
 import Spacer from './../../../components/Utilities/Spacer';
 import * as Icon from 'react-feather'
 import Button from '../../../components/Utilities/Button';
-import { db } from './../../../lib/config/firebaseConfig';
+import { auth, db } from './../../../lib/config/firebaseConfig';
 import AuthScreen from '../../../components/Screens/AuthScreen/index';
 import Input from '../../../components/Utilities/Input';
 
@@ -113,49 +113,53 @@ const SignUp = () => {
             text: 'signing up with google...'
         })
         signInWithGoogle()
+    }
+    useEffect(() => {
+        auth.getRedirectResult()
             .then((user) => {
-                console.log(user);
-                // Split name into first and last name
-                const nameArr = user.user.displayName.split(' ')
-                setLoading({
-                    status: false,
-                    text: ''
-                })
-                // Show Alert
-                setShowAlert({
-                    status: true,
-                    title: 'account created successfully',
-                    variant: 'success'
-                })
-                setTimeout(() => {
-                    setShowAlert({
+                if (user.user !== null) {
+                    // Split name into first and last name
+                    const nameArr = user.user.displayName.split(' ')
+                    setLoading({
                         status: false,
-                        title: '',
-                        variant: ''
+                        text: ''
                     })
-                }, 2000)
-                db.collection('users').doc(user.user.uid).get()
-                    .then((doc) => {
-                        if (doc.exists) {
-                            history.push('/')
-                        }
-                        else {
-                            db.collection('users').doc(user.user.uid).set({
-                                email: user.user.email,
-                                firstName: nameArr[0],
-                                lastName: nameArr[1],
-                                photoURL: user.user.photoURL,
-                                profileComplete: false,
-                                connections: [],
-                                requests: [],
-                                createdAt: new Date(),
-                                profileImage: '',
-                            }).then(() => {
+                    // Show Alert
+                    setShowAlert({
+                        status: true,
+                        title: 'logged in',
+                        variant: 'success'
+                    })
+                    setTimeout(() => {
+                        setShowAlert({
+                            status: false,
+                            title: '',
+                            variant: ''
+                        })
+                    }, 2000)
+                    db.collection('users').doc(user.user.uid).get()
+                        .then((doc) => {
+                            if (doc.exists) {
                                 history.push('/')
                             }
-                            )
-                        }
-                    })
+                            else {
+                                db.collection('users').doc(user.user.uid).set({
+                                    email: user.user.email,
+                                    firstName: nameArr[0],
+                                    lastName: nameArr[1],
+                                    photoURL: user.user.photoURL,
+                                    profileComplete: false,
+                                    connections: [],
+                                    requests: [],
+                                    createdAt: new Date(),
+                                    profileImage: '',
+                                }).then(() => {
+                                    history.push('/')
+                                }
+                                )
+                            }
+                        })
+                }
             }).catch((err) => {
                 console.log(err)
                 setShowAlert({
@@ -175,7 +179,7 @@ const SignUp = () => {
                     text: ''
                 })
             })
-    }
+    }, [setLoading, setShowAlert, history])
     return (currentUser) ?
         (<Redirect to='/' />)
         : (
