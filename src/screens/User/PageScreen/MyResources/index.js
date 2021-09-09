@@ -96,7 +96,7 @@ const MyResources = () => {
                         </motion.div>
                     ) : !loading.status && (
                         <div className='noResources'>
-                            <h2>you haven't saved any resource 🥲</h2>
+                            <h2>you haven't saved any resource 💔</h2>
                             <span>
                                 You can add resources&nbsp;<Link to='/resources' className='link c-primary'>here</Link>
                             </span>

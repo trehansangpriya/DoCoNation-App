@@ -96,7 +96,7 @@ const Network = () => {
                                 layout
                                 className="userList">
                                 {myConnections.map(connection => (
-                                    <UserCard key={connection} person={connection} type='connection' />
+                                    <UserCard key={connection.id} person={connection} type='connection' />
                                 ))}
                             </motion.div>
                         </AnimateSharedLayout>

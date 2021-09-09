@@ -20,9 +20,11 @@
 	justify-content: center;
 }
 .profile .profileContent .profileImage img {
-	width: 164px;
+	/* width: 164px; */
 	height: 164px;
-	border-radius: 50%;
+	/* border-radius: 50%; */
+	clip-path: circle();
+	object-fit: contain;
 }
 .profile .profileContent .profileInfo {
 	display: flex;

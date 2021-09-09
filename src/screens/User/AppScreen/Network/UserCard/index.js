@@ -10,6 +10,7 @@ const UserCard = ({ person, type }) => {
     const { currentUser, setShowAlert } = useAuthContext()
     const [isOpen, setIsOpen] = useState(false);
     const [email, setEmail] = useState('');
+    const [connectionLink, setConnectionLink] = useState('');
     const [phone, setPhone] = useState('');
     const [instagram, setInstagram] = useState('');
     const [linkedin, setLinkedin] = useState('');
@@ -32,7 +33,7 @@ const UserCard = ({ person, type }) => {
     }
     const removeConnection = () => {
         db.collection('users').doc(currentUser.uid).update({
-            connections: firebase.firestore.FieldValue.arrayRemove(email)
+            connections: firebase.firestore.FieldValue.arrayRemove(connectionLink)
         })
         db.collection('users').doc(person.id).update({
             connections: firebase.firestore.FieldValue.arrayRemove(currentUser.email)
@@ -58,6 +59,7 @@ const UserCard = ({ person, type }) => {
             if (doc.data().phonePrivacy === 'public') {
                 setPhone(doc.data().phoneNumber);
             }
+            setConnectionLink(doc.data().email)
             setInstagram(doc.data().instagram);
             setLinkedin(doc.data().linkedin);
         }

@@ -28,6 +28,7 @@
 	background-color: transparent;
 	color: var(--c-primary-dark);
 	transition: all 0.2s ease-in-out;
+	z-index: 1;
 }
 .editProfile .basicInfo .inputGroup .countryCode:focus,
 .editProfile .basicInfo .inputGroup .countryCode:active {

@@ -214,7 +214,7 @@ const EditProfile = () => {
             db.collection('users').doc(currentUser.uid).set({
                 firstName,
                 lastName,
-                phoneNumber,
+                phoneNumber: selectedCountry.dialCode + phoneNumber,
                 dateOfBirth: new Date(mm + '/' + dd + '/' + yyyy),
                 bio,
                 interests: selectedInterests,
@@ -480,7 +480,7 @@ const EditProfile = () => {
                     </div>
                     <Input
                         id='dd'
-                        type='text'
+                        type='number'
                         placeholder='dd'
                         required={true}
                         value={dd}
@@ -499,7 +499,7 @@ const EditProfile = () => {
                     &nbsp;
                     <Input
                         id='mm'
-                        type='text'
+                        type='number'
                         placeholder='mm'
                         required={true}
                         value={mm}
@@ -518,7 +518,7 @@ const EditProfile = () => {
                     &nbsp;
                     <Input
                         id='yyyy'
-                        type='text'
+                        type='number'
                         placeholder='yyyy'
                         required={true}
                         value={yyyy}

@@ -16,7 +16,7 @@ const VerifyEmail = () => {
         disabled: loading.status
     })
     const actionCodeSettings = {
-        url: 'http://localhost:3000/login'
+        url: 'https://app.doconation.com/login'
     }
     const startCountdown = (time) => {
         let counter = time

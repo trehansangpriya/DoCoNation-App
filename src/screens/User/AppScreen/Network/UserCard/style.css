@@ -24,7 +24,8 @@
 }
 .userCard .userInfo .userImage img {
 	width: 100%;
-	border-radius: 50%;
+	/* border-radius: 50%; */
+	clip-path: circle();
 	object-fit: cover;
 }
 
