@@ -10,6 +10,7 @@ import { Link, Save } from 'react-feather'
 import { db, storage } from '../../../../../lib/config/firebaseConfig'
 import getDateTime from './../../../../../lib/functions/getDateTime';
 import Spacer from './../../../../../components/Utilities/Spacer/index';
+import validator from 'validator'
 
 const EditProfile = () => {
     const history = useHistory()
@@ -195,6 +196,26 @@ const EditProfile = () => {
             setShowAlert({
                 status: true,
                 title: 'gender is required',
+                variant: 'danger'
+            })
+            setLoading({
+                status: false,
+                text: ''
+            })
+            setTimeout(() => {
+                setShowAlert({
+                    status: false,
+                    title: '',
+                    variant: 'danger'
+                })
+            }, 2000)
+            return
+        }
+        // check LinkedIn URL
+        if (linkedin.length > 0 && validator.isURL(linkedin) === false) {
+            setShowAlert({
+                status: true,
+                title: 'LinkedIn URL is not valid',
                 variant: 'danger'
             })
             setLoading({
