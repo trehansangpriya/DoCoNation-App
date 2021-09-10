@@ -26,6 +26,7 @@ body {
 	background: var(--c-light);
 	text-transform: lowercase;
 	color: var(--c-primary-dark);
+	-webkit-tap-highlight-color: transparent;
 }
 
 a {
@@ -51,6 +52,7 @@ a {
 ::-webkit-scrollbar-thumb:hover {
 	background: #555;
 }
+
 .link {
 	cursor: pointer;
 }
