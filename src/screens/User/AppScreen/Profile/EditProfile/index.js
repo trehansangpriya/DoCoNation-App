@@ -214,7 +214,8 @@ const EditProfile = () => {
             db.collection('users').doc(currentUser.uid).set({
                 firstName,
                 lastName,
-                phoneNumber: selectedCountry.dialCode + phoneNumber,
+                countryCode: selectedCountry.dialCode,
+                phoneNumber: phoneNumber,
                 dateOfBirth: new Date(mm + '/' + dd + '/' + yyyy),
                 bio,
                 interests: selectedInterests,

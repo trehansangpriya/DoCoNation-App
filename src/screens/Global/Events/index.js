@@ -82,7 +82,7 @@ const Events = () => {
         } else {
             setSelectedTag('live now 🔴')
         }
-    }, [liveEvents.length])
+    }, [liveEvents.length, setLoading])
 
     return (
         <div className='events'>

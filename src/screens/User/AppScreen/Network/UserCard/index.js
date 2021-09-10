@@ -12,6 +12,7 @@ const UserCard = ({ person, type }) => {
     const [email, setEmail] = useState('');
     const [connectionLink, setConnectionLink] = useState('');
     const [phone, setPhone] = useState('');
+    const [countryCode, setCountryCode] = useState('');
     const [instagram, setInstagram] = useState('');
     const [linkedin, setLinkedin] = useState('');
     const sendConnectionRequest = () => {
@@ -58,6 +59,7 @@ const UserCard = ({ person, type }) => {
             }
             if (doc.data().phonePrivacy === 'public') {
                 setPhone(doc.data().phoneNumber);
+                setCountryCode(doc.data().countryCode);
             }
             setConnectionLink(doc.data().email)
             setInstagram(doc.data().instagram);
@@ -143,8 +145,8 @@ const UserCard = ({ person, type }) => {
                                             <Spacer h='16px' />
                                             <p className="contentM c-primary">phone</p>
                                             <Spacer h='8px' />
-                                            <a href={`tel:${phone}`}>
-                                                {phone}
+                                            <a href={`tel:${countryCode}${phone}`}>
+                                                {countryCode} {phone}
                                             </a>
                                         </div>
                                     )}

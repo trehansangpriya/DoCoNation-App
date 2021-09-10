@@ -16,7 +16,7 @@ const Profile = () => {
                 <h1 className='headingM'>profile</h1>
                 <Link
                     to='/edit-profile'
-                    style={{ width: 'fit-content', paddingRight: '8px', paddingLeft: '8px' }}
+                    style={{ width: 'fit-content', paddingRight: '16px', paddingLeft: '16px' }}
                     className='link content btn c-primary'
                 >
                     edit profile
@@ -78,9 +78,9 @@ const Profile = () => {
                         <h3 className='contentM c-primary'>
                             {
                                 showPhone ?
-                                    userData.phoneNumber
+                                    userData.countryCode + " " + userData.phoneNumber
                                     :
-                                    userData.phoneNumber.substring(0, 2) + '*****'
+                                    userData.countryCode + " " + userData.phoneNumber.substring(0, 2) + '*****'
                                     +
                                     userData.phoneNumber.substring(userData.phoneNumber.length - 3, userData.phoneNumber.length)
                             }
