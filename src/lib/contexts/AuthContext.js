@@ -92,7 +92,25 @@ export const AuthProvider = ({ children }) => {
 
     return (
         <AuthContext.Provider value={value}>
-            {!userLoading && children}
+            {!userLoading ? children :
+                (
+                    <div
+                        className="loader"
+                        style={{
+                            display: 'flex',
+                            width: '100vw',
+                            position: 'fixed',
+                            top: '0',
+                            left: '0',
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            height: '100vh'
+                        }}
+                    >
+                        <img width='64px' src="/assets/gifs/loading.gif" alt="loading" />
+                    </div>
+                )
+            }
         </AuthContext.Provider>
     )
 }
