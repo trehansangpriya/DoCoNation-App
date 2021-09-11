@@ -11,6 +11,7 @@ import { db, storage } from '../../../../../lib/config/firebaseConfig'
 import getDateTime from './../../../../../lib/functions/getDateTime';
 import Spacer from './../../../../../components/Utilities/Spacer/index';
 import validator from 'validator'
+import { date, month, year } from '../../../../../data/dob'
 
 const EditProfile = () => {
     const history = useHistory()
@@ -113,6 +114,26 @@ const EditProfile = () => {
             setShowAlert({
                 status: true,
                 title: 'Date of birth is required',
+                variant: 'danger'
+            })
+            setLoading({
+                status: false,
+                text: ''
+            })
+            setTimeout(() => {
+                setShowAlert({
+                    status: false,
+                    title: '',
+                    variant: 'danger'
+                })
+            }, 2000)
+            return
+        }
+        // check date
+        if (!validator.isDate(new Date(mm + '/' + dd + '/' + yyyy))) {
+            setShowAlert({
+                status: true,
+                title: 'Invalid date of birth',
                 variant: 'danger'
             })
             setLoading({
@@ -500,58 +521,76 @@ const EditProfile = () => {
                             alt='birthday'
                         />
                     </div>
-                    <Input
-                        id='dd'
-                        type='number'
-                        placeholder='dd'
-                        required={true}
-                        value={dd}
-                        onChange={(e) => {
-                            setDd(e.target.value)
-                        }}
-                        style={{
-                            width: '50px',
-                            textAlign: 'center'
-                        }}
-                    />
+                    <Listbox className='dob' as='div' value={dd} onChange={setDd}>
+                        <Listbox.Button as='div' className='dobButton'>
+                            <div className="name">
+                                {dd}
+                            </div>
+                        </Listbox.Button>
+                        <Listbox.Options className='dobOptions'>
+                            {date.map((data, index) => (
+                                <Listbox.Option
+                                    className='dobOption'
+                                    key={index}
+                                    value={data}
+                                >
+                                    <div className='text'>
+                                        {data}
+                                    </div>
+                                </Listbox.Option>
+                            ))}
+                        </Listbox.Options>
+                    </Listbox>
                     &nbsp;
                     &nbsp;
                     <span className='c-disabled'>/</span>
                     &nbsp;
                     &nbsp;
-                    <Input
-                        id='mm'
-                        type='number'
-                        placeholder='mm'
-                        required={true}
-                        value={mm}
-                        onChange={(e) => {
-                            setMm(e.target.value)
-                        }}
-                        style={{
-                            width: '50px',
-                            textAlign: 'center'
-                        }}
-                    />
+                    <Listbox className='dob' as='div' value={mm} onChange={setMm}>
+                        <Listbox.Button as='div' className='dobButton'>
+                            <div className="name">
+                                {mm}
+                            </div>
+                        </Listbox.Button>
+                        <Listbox.Options className='dobOptions'>
+                            {month.map((data, index) => (
+                                <Listbox.Option
+                                    className='dobOption'
+                                    key={index}
+                                    value={data.value}
+                                >
+                                    <div className='text'>
+                                        {data.name}
+                                    </div>
+                                </Listbox.Option>
+                            ))}
+                        </Listbox.Options>
+                    </Listbox>
                     &nbsp;
                     &nbsp;
                     <span className='c-disabled'>/</span>
                     &nbsp;
                     &nbsp;
-                    <Input
-                        id='yyyy'
-                        type='number'
-                        placeholder='yyyy'
-                        required={true}
-                        value={yyyy}
-                        onChange={(e) => {
-                            setYyyy(e.target.value)
-                        }}
-                        style={{
-                            width: '70px',
-                            textAlign: 'center'
-                        }}
-                    />
+                    <Listbox className='dob' as='div' value={yyyy} onChange={setYyyy}>
+                        <Listbox.Button as='div' className='dobButton'>
+                            <div className="name">
+                                {yyyy}
+                            </div>
+                        </Listbox.Button>
+                        <Listbox.Options className='dobOptions'>
+                            {year.map((data, index) => (
+                                <Listbox.Option
+                                    className='dobOption'
+                                    key={index}
+                                    value={data}
+                                >
+                                    <div className='text'>
+                                        {data}
+                                    </div>
+                                </Listbox.Option>
+                            ))}
+                        </Listbox.Options>
+                    </Listbox>
                 </div>
                 <div className="inputGroup">
                     <Listbox className='countryCode' as='div' value={selectedCountry} onChange={setSelectedCountry}>

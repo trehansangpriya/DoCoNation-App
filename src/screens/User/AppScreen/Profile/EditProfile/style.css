@@ -28,7 +28,6 @@
 	background-color: transparent;
 	color: var(--c-primary-dark);
 	transition: all 0.2s ease-in-out;
-	z-index: 1;
 }
 .editProfile .basicInfo .inputGroup .countryCode:focus,
 .editProfile .basicInfo .inputGroup .countryCode:active {
@@ -65,6 +64,7 @@
 	border-radius: 4px;
 	overflow-x: hidden;
 	overflow-y: scroll;
+	z-index: 1;
 }
 
 /* width */
@@ -230,6 +230,103 @@
 	margin-right: 0;
 }
 .editProfile .basicInfo .select .option.selected {
+	background-color: var(--c-primary);
+	color: var(--c-light);
+}
+.editProfile .basicInfo .inputGroup .dob {
+	all: unset;
+	position: relative;
+	width: fit-content;
+	height: 100%;
+	padding: 4px 8px;
+	outline: none;
+	border: none;
+	border-bottom: 2px solid var(--c-disabled);
+	background-color: transparent;
+	color: var(--c-primary-dark);
+	transition: all 0.2s ease-in-out;
+}
+.editProfile .basicInfo .inputGroup .dob:focus,
+.editProfile .basicInfo .inputGroup .dob:active {
+	outline: none;
+	border-bottom: 2px solid var(--c-primary);
+	color: var(--c-primary);
+}
+
+.editProfile .basicInfo .inputGroup .dob .dobButton {
+	display: flex;
+	align-items: center;
+}
+.editProfile .basicInfo .inputGroup .dob .dobButton .img {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-right: 6px;
+}
+.editProfile .basicInfo .inputGroup .dob .dobButton .img img {
+	width: 24px;
+}
+
+.editProfile .basicInfo .inputGroup .dobOptions {
+	position: absolute;
+	width: fit-content;
+	height: 200px;
+	transition: all 0.2s ease-in-out;
+	background-color: var(--c-light);
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+	list-style-type: none;
+	top: 45px;
+	left: 0;
+	padding: 4px;
+	border-radius: 4px;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	z-index: 1;
+}
+
+/* width */
+.editProfile .basicInfo .inputGroup .dobOptions::-webkit-scrollbar {
+	width: 4px;
+	border-radius: 4px;
+}
+
+/* Track */
+.editProfile .basicInfo .inputGroup .dobOptions::-webkit-scrollbar-track {
+	background: #f1f1f1;
+	border-radius: 4px;
+}
+
+/* Handle */
+.editProfile .basicInfo .inputGroup .dobOptions::-webkit-scrollbar-thumb {
+	background: #888;
+	border-radius: 4px;
+}
+
+/* Handle on hover */
+.editProfile .basicInfo .inputGroup .dobOptions::-webkit-scrollbar-thumb:hover {
+	background: #555;
+}
+
+.editProfile .basicInfo .inputGroup .dobOption {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	padding: 4px 8px;
+	cursor: pointer;
+	border-radius: 2px;
+	margin: 2px 0;
+}
+.editProfile .basicInfo .inputGroup .dobOption .img {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-right: 6px;
+}
+.editProfile .basicInfo .inputGroup .dobOption .img img {
+	width: 24px;
+}
+
+.editProfile .basicInfo .inputGroup .dobOption:hover {
 	background-color: var(--c-primary);
 	color: var(--c-light);
 }
