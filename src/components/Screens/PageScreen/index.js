@@ -5,17 +5,19 @@ import Loading from './../../Utilities/Loading/index';
 import Alert from './../../Utilities/Alert/index';
 import { useAuthContext } from './../../../lib/contexts/AuthContext';
 import { Link } from 'react-router-dom';
+import './style.css'
+import GoToTop from './GoToTop/index';
 
 const PageScreen = ({ children, title }) => {
     const { userData } = useAuthContext()
     return (
-        <div>
+        <div className='pageScreen'>
             <Header title={title} />
             <Loading />
             <motion.div
                 exit={{ x: '100vw' }}
-                initial={{ x: '100vw' }}
-                animate={{ x: 0 }}
+                initial={{ x: '10vw' }}
+                animate={{ x: '0' }}
                 transition={{ type: "tween", duration: 0.2 }}
             >
                 <motion.div
@@ -47,6 +49,7 @@ const PageScreen = ({ children, title }) => {
                     }
                 </motion.div>
             </motion.div>
+            <GoToTop />
             <Alert />
         </div>
     )

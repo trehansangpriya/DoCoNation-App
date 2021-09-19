@@ -1,6 +1,6 @@
 import React from 'react'
 import { ArrowUp } from 'react-feather';
-import { useAuthContext } from './../../../lib/contexts/AuthContext';
+import { useAuthContext } from '../../../../lib/contexts/AuthContext';
 import './style.css'
 
 const GoToTop = () => {
@@ -8,7 +8,7 @@ const GoToTop = () => {
     // Show goToTop button on scroll down 100px
     window.addEventListener('scroll', () => {
         const scrolled = document.documentElement.scrollTop;
-        if (scrolled > 300) {
+        if (scrolled > 100) {
             setShowGoToTop(true)
         }
         else if (scrolled <= 100) {

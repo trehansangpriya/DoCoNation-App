@@ -5,7 +5,6 @@ import { Filter } from 'react-feather';
 import './style.css'
 import { motion, AnimatePresence } from 'framer-motion';
 import { useAuthContext } from '../../../../lib/contexts/AuthContext';
-import GoToTop from '../../../../components/Shared/GoToTop';
 const RecordedEvents = () => {
     const [tags, setTags] = useState([]);
     const [selectedFilter, setSelectedFilter] = useState('All')
@@ -116,7 +115,6 @@ const RecordedEvents = () => {
                     return null
                 })}
             </motion.div>
-            <GoToTop />
         </div>
     )
 }
