@@ -21,7 +21,7 @@ const ContactUs = () => {
                         }}
                     >
                         hey@doconation.com
-                    </a>&nbsp;or messaging on our&nbsp;<a
+                    </a>&nbsp;or by messaging on our&nbsp;<a
                         className="link c-primary"
                         target="_blank"
                         rel="noopener noreferrer"
@@ -49,7 +49,7 @@ const ContactUs = () => {
                             fontWeight: '600',
                         }}
                     >
-                        hey@doconation.com</a>&nbsp;or messaging on our&nbsp;<a
+                        hey@doconation.com</a>&nbsp;or by messaging on our&nbsp;<a
                             className="link c-primary"
                             target="_blank"
                             rel="noopener noreferrer"
