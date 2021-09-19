@@ -55,6 +55,13 @@ const SignUp = () => {
                                 history.push('/')
                             }
                             else {
+                                db.collection('transactions').add({
+                                    amount: 100,
+                                    user: user.user.email,
+                                    type: 'credit',
+                                    remarks: 'Sign Up Bonus',
+                                    datetime: new Date()
+                                })
                                 db.collection('users').doc(user.user.uid).set({
                                     email: email,
                                     firstName: firstName,
@@ -143,6 +150,13 @@ const SignUp = () => {
                                 history.push('/')
                             }
                             else {
+                                db.collection('transactions').add({
+                                    amount: 100,
+                                    user: user.user.email,
+                                    type: 'credit',
+                                    remarks: 'Sign Up Bonus',
+                                    datetime: new Date()
+                                })
                                 db.collection('users').doc(user.user.uid).set({
                                     email: user.user.email,
                                     firstName: nameArr[0],
@@ -155,31 +169,31 @@ const SignUp = () => {
                                     profileImage: '',
                                 }).then(() => {
                                     history.push('/')
-                                }
-                                )
+                                })
                             }
                         })
+                        .catch((err) => {
+                            console.log(err)
+                            setShowAlert({
+                                status: true,
+                                title: err.message,
+                                variant: 'danger'
+                            })
+                            setTimeout(() => {
+                                setShowAlert({
+                                    status: false,
+                                    title: '',
+                                    variant: ''
+                                })
+                            }, 2000)
+                            setLoading({
+                                status: false,
+                                text: ''
+                            })
+                        })
                 }
-            }).catch((err) => {
-                console.log(err)
-                setShowAlert({
-                    status: true,
-                    title: err.message,
-                    variant: 'danger'
-                })
-                setTimeout(() => {
-                    setShowAlert({
-                        status: false,
-                        title: '',
-                        variant: ''
-                    })
-                }, 2000)
-                setLoading({
-                    status: false,
-                    text: ''
-                })
             })
-    }, [setLoading, setShowAlert, history])
+    }, [history, setLoading, setShowAlert])
     return (currentUser) ?
         (<Redirect to='/' />)
         : (

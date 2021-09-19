@@ -14,7 +14,7 @@ const DoCoCoins = () => {
     const { dococoins, currentUser, setShowAlert } = useAuthContext()
     const [transactions, setTransactions] = useState([])
     useEffect(() => {
-        db.collection('transactions').where('user', '==', currentUser.email).onSnapshot(
+        db.collection('transactions').orderBy('datetime', 'desc').where('user', '==', currentUser.email).onSnapshot(
             snapshot => {
                 setTransactions(snapshot.docs.map(
                     doc => ({

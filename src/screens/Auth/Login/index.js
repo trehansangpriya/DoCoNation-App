@@ -125,6 +125,13 @@ const Login = () => {
                                 history.push('/')
                             }
                             else {
+                                db.collection('transactions').add({
+                                    amount: 100,
+                                    user: user.user.email,
+                                    type: 'credit',
+                                    remarks: 'Sign Up Bonus',
+                                    datetime: new Date()
+                                })
                                 db.collection('users').doc(user.user.uid).set({
                                     email: user.user.email,
                                     firstName: nameArr[0],
