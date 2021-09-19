@@ -22,6 +22,7 @@ import ViewResources from './screens/Global/Resources/ViewResources';
 import FullScreenRoute from './lib/routes/FullScreenRoute';
 import VerifyEmail from './screens/Auth/VerifyEmail';
 import Requests from './screens/User/PageScreen/Requests';
+import ContactUs from './screens/User/PageScreen/ContactUs';
 
 function App() {
   const location = useLocation();
@@ -41,6 +42,7 @@ function App() {
         <FullScreenRoute path="/edit-profile" title='edit profile' component={EditProfile} exact />
         <PageRoute path="/dococoins" title='dococoins' component={DoCoCoins} exact />
         <PageRoute path="/my-resources" title='my resources' component={MyResources} exact />
+        <PageRoute path="/contact-us" title='contact us' component={ContactUs} exact />
         <PageRoute path="/network/requests" component={Requests} exact />
 
 
