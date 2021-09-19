@@ -1,0 +1,23 @@
+.goToTop {
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	width: 58px;
+	height: 58px;
+	clip-path: circle();
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: var(--c-primary);
+	color: var(--c-light);
+	cursor: pointer;
+	transition: all 0.2s ease-in-out;
+	box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
+}
+
+.goToTop svg {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}

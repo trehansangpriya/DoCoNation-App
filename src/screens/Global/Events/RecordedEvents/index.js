@@ -5,12 +5,14 @@ import { Filter } from 'react-feather';
 import './style.css'
 import { motion, AnimatePresence } from 'framer-motion';
 import { useAuthContext } from '../../../../lib/contexts/AuthContext';
+import GoToTop from '../../../../components/Shared/GoToTop';
 const RecordedEvents = () => {
     const [tags, setTags] = useState([]);
     const [selectedFilter, setSelectedFilter] = useState('All')
     const [openFilter, setOpenFilter] = useState(false)
     const [pastEvents, setPastEvents] = useState([]);
     const { setLoading } = useAuthContext()
+
     useEffect(() => {
         setLoading({
             text: 'Loading...',
@@ -49,7 +51,6 @@ const RecordedEvents = () => {
     return (
         <div className='pastEvents'>
             <div className="pastEventsFilters">
-
                 <div className="filter">
                     <div className="filterButton" onClick={e => setOpenFilter(!openFilter)} >
                         {selectedFilter}
@@ -115,6 +116,7 @@ const RecordedEvents = () => {
                     return null
                 })}
             </motion.div>
+            <GoToTop />
         </div>
     )
 }

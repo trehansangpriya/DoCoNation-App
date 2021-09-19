@@ -16,6 +16,7 @@ export const AuthProvider = ({ children }) => {
     const [currentUser, setCurrentUser] = useState()
     const [userData, setUserData] = useState()
     const [dococoins, setDococoins] = useState(0)
+    const [showGoToTop, setShowGoToTop] = useState(false)
     const [loading, setLoading] = useState({
         text: 'Loading',
         status: false
@@ -87,7 +88,9 @@ export const AuthProvider = ({ children }) => {
         showAlert,
         setShowAlert,
         loading,
-        setLoading
+        setLoading,
+        showGoToTop,
+        setShowGoToTop
     }
 
     return (
