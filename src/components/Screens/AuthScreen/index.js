@@ -13,7 +13,7 @@ const AuthScreen = ({ children }) => {
                     opacity: 0,
                 }}
                 animate={{
-                    y: 0,
+                    y: '0',
                     opacity: 1,
                 }}
                 exit={{

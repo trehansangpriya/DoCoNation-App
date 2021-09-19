@@ -32,7 +32,7 @@ const AppScreen = ({ children }) => {
                     opacity: 0,
                 }}
                 animate={{
-                    y: 0,
+                    y: '0',
                     opacity: 1,
                 }}
                 ref={screen}
