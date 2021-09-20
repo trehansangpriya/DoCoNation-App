@@ -17,8 +17,26 @@ const Network = () => {
     const [pendingCount, setPendingCount] = useState(0);
     useEffect(() => {
         userData && userData.interests && db.collection('users').where('interests', 'array-contains-any', userData.interests).onSnapshot(snapshot => {
+            console.log(snapshot.docs.map(doc => ({
+                id: doc.id,
+                profileComplete: doc.data().profileComplete,
+                name: doc.data().firstName,
+                interests: doc.data().interests,
+                requests: doc.data().requests,
+                email: doc.data().email,
+            })))
             setPeopleLikeMe(snapshot.docs.filter(
-                doc => doc.data().profileComplete === true && doc.id !== currentUser.uid && !doc.data().connections.includes(currentUser.email) && !userData.requests.includes(doc.data().email) && !doc.data().requests.includes(userData.email) && !userData.connections.includes(doc.data().email)
+                doc => doc.data().profileComplete === true
+                    &&
+                    doc.id !== currentUser.uid
+                    &&
+                    !userData.connections.includes(doc.data().email)
+                    &&
+                    !userData.requests.includes(doc.data().email)
+                    &&
+                    !doc.data().connections.includes(userData.email)
+                    &&
+                    !doc.data().requests.includes(userData.email)
             ).map(doc => ({
                 id: doc.id,
                 firstName: doc.data().firstName,

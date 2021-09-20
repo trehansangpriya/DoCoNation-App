@@ -23,6 +23,7 @@ import FullScreenRoute from './lib/routes/FullScreenRoute';
 import VerifyEmail from './screens/Auth/VerifyEmail';
 import Requests from './screens/User/PageScreen/Requests';
 import ContactUs from './screens/User/PageScreen/ContactUs';
+import ErrorPage from './screens/Auth/Error';
 
 function App() {
   const location = useLocation();
@@ -54,6 +55,9 @@ function App() {
         <PageRoute path="/events" title='events' component={Events} exact />
         <PageRoute path="/clubs" title='clubs' component={Clubs} exact />
         <PageRoute path="/clubs/:club" title='' component={Club} />
+
+        {/* Error Screens */}
+        <Route path="*" component={ErrorPage} />
       </Switch>
     </AnimatePresence>
   );
