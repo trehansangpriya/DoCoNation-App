@@ -124,11 +124,12 @@ const SignUp = () => {
     useEffect(() => {
         auth.getRedirectResult()
             .then((user) => {
-                setLoading({
-                    status: true,
-                    text: 'logging in with google...'
-                })
+                console.log(user);
                 if (user.user !== null) {
+                    setLoading({
+                        status: true,
+                        text: 'logging in with google...'
+                    })
                     // Split name into first and last name
                     const nameArr = user.user.displayName.split(' ')
                     setLoading({
